@@ -5,17 +5,17 @@ import { stats } from "../data";
 
 const Stats = () => {
 	return (
-		<div className='bg-[var(--primary-color)] p-12 rounded-2xl'>
-			<div className='flex flex-wrap gap-y-8'>
+		<div className='bg-[var(--primary-color)] px-6 py-10 md:px-10 md:py-12 rounded-2xl'>
+			<div className='grid grid-cols-2 lg:grid-cols-4 gap-y-10 text-center'>
 				{stats.map((item, index) => (
 					<div
-						className='min-h-[70px] w-3/6 flex flex-col justify-center odd:border-r lg:flex-1 lg:even:border-r lg:last:border-none'
+						className='min-h-[70px] flex flex-col justify-center px-4 border-white/20 [&:nth-child(odd)]:border-r lg:border-r lg:last:border-none [&:nth-child(2)]:border-r-0 lg:[&:nth-child(2)]:border-r [&:nth-child(4)]:border-r-0'
 						key={index}
 					>
 						<div className='font-semibold text-2xl lg:text-4xl'>
 							{item.value}
 						</div>
-						<div className='text-base font-light max-w-[110px] mx-auto lg:text-xl'>
+						<div className='text-base font-light max-w-[160px] mx-auto lg:text-xl opacity-90'>
 							{item.text}
 						</div>
 					</div>
