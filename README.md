@@ -1,42 +1,71 @@
-# Furniture Website (Figma to React Code)
+# Furniture Website (React)
 
-This project is a React code implementation of a furniture website design by [Soumitra Saha]. The purpose of this repository is to showcase the conversion of the Figma design into a fully functional React application.
+A modern furniture e‑commerce frontend built with React, Tailwind CSS, and React Router. It includes user auth, product browsing, cart/checkout, profile management, and an Admin Dashboard with summary graphs.
 
-## Design
+## Features
+- Product catalog, details, search, and cart/checkout flow
+- User registration, login, and profile management
+- Admin panel to manage products, orders, and users
+- Dashboard overview with interactive charts (Recharts)
+- Responsive UI styled with Tailwind CSS
 
-The design for the furniture website was created by [Nait Creative](https://www.figma.com/@naitcreative) in Figma, a popular web-based design tool. The design includes various components such as a home page, products, shopping cart.
+## Tech Stack
+- React 18, React Router
+- Tailwind CSS
+- Axios for API requests
+- Recharts for dashboard charts
 
-## Technologies Used
+## Prerequisites
+- Node.js (LTS recommended) and npm
+- Backend API available at `http://localhost:5000/api`
 
-The following technologies were used to develop this React code implementation:
+The frontend axios instance is configured here: `src/api/axios.js` with:
+```
+baseURL: http://localhost:5000/api
+```
+Ensure your backend is running on that address or update the baseURL accordingly.
 
-- React: A JavaScript library for building user interfaces.
-- TailwindCSS: Tailwind CSS is a popular utility-first CSS framework
+## Setup
+1. Install dependencies:
+   ```
+   npm install
+   ```
+2. Start development server:
+   ```
+   npm start
+   ```
+3. Build for production:
+   ```
+   npm run build
+   ```
+4. Run tests:
+   ```
+   npm test
+   ```
 
-## Getting Started
+## Admin Dashboard Charts
+The Admin Dashboard shows:
+- Orders (Last 14 Days) — bar chart of daily order counts
+- Revenue (Last 14 Days) — line chart of daily revenue totals
+- Order Status — bar chart of paid/unpaid and delivered/undelivered
+- Top Categories — bar chart of product categories by count
 
-To run this React code locally, follow these steps:
+Implementation uses Recharts and lives in:
+- `src/pages/AdminDashboard.js`
 
-1. Clone this repository: `git clone <repository-url>`
-2. Navigate to the project directory: `cd furniture-website`
-3. Install the dependencies: `npm install`
-4. Start the development server: `npm start`
-5. Open your browser and visit `http://localhost:3000`
+Access the admin panel at `/admin`. It requires an authenticated user with admin privileges (`isAdmin`).
 
-- The `src` directory contains the main source code of the React application.
-- The `components` directory holds individual React components responsible for rendering different pages and sections of the website.
-- The `App.js` file is the entry point of the application and handles routing between different pages.
-- The `index.js` file is responsible for rendering the root component into the DOM.
-- The `index.css` file provides global styling for the application.
+## Styling
+- Tailwind CSS is configured in `tailwind.config.js`
+- Primary color and theme utilities are available and used across components
 
-## License
+## Project Structure (selected)
+- `src/pages` — page components (Home, Products, Cart, Checkout, Profile, AdminDashboard)
+- `src/components` — shared and admin components
+- `src/context` — Auth and Cart contexts
+- `src/api/axios.js` — axios instance
 
-This project is licensed under the [MIT License](LICENSE).
+## Notes
+- Update `src/api/axios.js` `baseURL` if your backend runs on a different host/port.
+- Ensure your backend exposes routes `/products`, `/orders`, and `/users` used by the dashboard.
 
-## Acknowledgments
-
-The design for this furniture website was created by [Nait Creative](https://www.figma.com/@naitcreative) and can be found on Figma at [https://www.figma.com/@naitcreative]. The React code implementation was done by [Soumitra Saha (ME)].
-
-## Contact
-
-For any inquiries or questions regarding this project, please contact [soumitrosaha100@gmail.com].
