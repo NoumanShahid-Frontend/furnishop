@@ -78,7 +78,7 @@ const ProductSlider = ({ products }) => {
 			pagination={{ clickable: true }}
 			navigation={true}
 			modules={[Pagination, Navigation]}
-			className='productSlider relative min-h-[1330px]'
+			className='productSlider relative min-h-[1000px]'
 		>
 			{pageSlider}
 		</Swiper>

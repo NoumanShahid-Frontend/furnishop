@@ -191,7 +191,7 @@ const AdminDashboard = () => {
     }
 
     return (
-        <div className="container mx-auto py-10 px-4">
+        <div className="container mx-auto pt-28 py-10 px-4">
             <div className="flex flex-col gap-6 mb-8">
                 <div className="flex items-start justify-between gap-4">
                     <div>

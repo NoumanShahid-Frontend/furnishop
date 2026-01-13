@@ -25,16 +25,21 @@ const Header = () => {
 	const bgStyle = bg || !hasHero ? "bg-primary py-4 lg:py-6 shadow-md" : "bg-none py-8";
 	const mobileNavMenu = mobileNav ? <CgClose /> : <CgMenuRight />;
 	const mobileNavMenuStyle = mobileNav ? "left-0" : "-left-full";
-	const navItems = navigation.map((item, index) => (
-		<li key={index}>
-			<Link
-				to={item.href}
-				className={`text-white capitalize hover:border-b transition-all`}
-			>
-				{item.name}
-			</Link>
-		</li>
-	));
+	const navItems = navigation.map((item, index) => {
+		const isActive = location.pathname === item.href;
+		return (
+			<li key={index}>
+				<Link
+					to={item.href}
+					className={`text-white capitalize hover:border-b transition-all ${
+						isActive ? 'border-b-2 border-white' : ''
+					}`}
+				>
+					{item.name}
+				</Link>
+			</li>
+		);
+	});
 
 	// Controlling the Scrolling Effect:
 	useEffect(() => {

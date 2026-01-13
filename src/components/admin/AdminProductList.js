@@ -299,26 +299,26 @@ const AdminProductList = () => {
 
             {isModalOpen && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4 py-6"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
                     onClick={closeForm}
                 >
                     <div
-                        className="w-full max-w-2xl rounded-2xl bg-white shadow-xl border"
+                        className="w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl bg-white shadow-xl border"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="flex items-center justify-between px-6 py-4 border-b">
+                        <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b sticky top-0 bg-white z-10">
                             <div>
                                 <h3 className="text-lg font-bold text-gray-900">{modalTitle}</h3>
-                                <p className="text-sm text-gray-600">Fill in details and save changes</p>
+                                <p className="text-sm text-gray-600 hidden sm:block">Fill in details and save changes</p>
                             </div>
                             <button onClick={closeForm} className="p-2 rounded-lg hover:bg-gray-100">
                                 <HiOutlineX className="text-xl text-gray-700" />
                             </button>
                         </div>
 
-                        <form onSubmit={submitHandler} className="px-6 py-5">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div className="md:col-span-2">
+                        <form onSubmit={submitHandler} className="px-4 sm:px-6 py-5">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                                <div className="lg:col-span-2">
                                     <label className="block text-sm font-medium mb-1">Name</label>
                                     <input
                                         name="name"
@@ -390,13 +390,13 @@ const AdminProductList = () => {
                                         className="w-full border rounded-lg px-3 py-2"
                                     />
                                 </div>
-                                <div className="md:col-span-2">
+                                <div className="lg:col-span-2">
                                     <label className="block text-sm font-medium mb-2">Product Image</label>
 
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                                         <div className="rounded-xl border bg-gray-50 p-4">
                                             <p className="text-sm font-semibold text-gray-900 mb-2">Choose from library</p>
-                                            <div className="grid grid-cols-5 gap-2">
+                                            <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
                                                 {productLibraryImages.map((src) => (
                                                     <button
                                                         key={src}
@@ -428,7 +428,7 @@ const AdminProductList = () => {
                                         </div>
                                     </div>
 
-                                    <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+                                    <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
                                         <div>
                                             <label className="block text-sm font-medium mb-1">Image URL (optional)</label>
                                             <input
@@ -453,7 +453,7 @@ const AdminProductList = () => {
                                     </div>
                                 </div>
 
-                                <div className="md:col-span-2">
+                                <div className="lg:col-span-2">
                                     <label className="block text-sm font-medium mb-1">Description</label>
                                     <textarea
                                         name="description"
@@ -465,18 +465,18 @@ const AdminProductList = () => {
                                 </div>
                             </div>
 
-                            <div className="flex justify-end gap-3 mt-6">
+                            <div className="flex flex-col sm:flex-row justify-end gap-3 mt-6">
                                 <button
                                     type="button"
                                     onClick={closeForm}
-                                    className="px-4 py-2 rounded-lg border border-gray-300 bg-white hover:bg-gray-50"
+                                    className="px-4 py-2 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 order-2 sm:order-1"
                                 >
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
                                     disabled={submitting}
-                                    className={`px-4 py-2 rounded-lg bg-primary text-white hover:bg-gray-800 ${submitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                                    className={`px-4 py-2 rounded-lg bg-primary text-white hover:bg-gray-800 order-1 sm:order-2 ${submitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                                 >
                                     {editingProduct ? 'Update' : 'Create'}
                                 </button>

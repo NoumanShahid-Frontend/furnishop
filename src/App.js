@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -19,6 +19,12 @@ import Logo from "./assets/images/logo.svg";
 function App() {
 	const { loading } = useContext(AuthContext);
 	const [showSplash, setShowSplash] = useState(true);
+	const location = useLocation();
+
+	// Scroll to top on route change
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [location.pathname]);
 
 	useEffect(() => {
 		const id = setTimeout(() => setShowSplash(false), 800);

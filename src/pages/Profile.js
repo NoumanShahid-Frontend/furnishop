@@ -60,7 +60,7 @@ const Profile = () => {
     };
 
     return (
-        <div className="container mx-auto py-16 px-4 min-h-[80vh]">
+        <div className="container mx-auto py-16 pt-28 px-4 min-h-[80vh]">
             <div className="max-w-6xl mx-auto">
                 <div className="flex flex-col md:flex-row gap-8">
                     {/* Sidebar */}
